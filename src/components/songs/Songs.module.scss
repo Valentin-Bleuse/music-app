@@ -1,0 +1,22 @@
+.song {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    cursor: pointer;
+    color: white;
+    opacity: 0.7;
+
+
+
+    &:hover {
+        opacity: 1;
+    }
+
+    .title {
+        max-width: 150px;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

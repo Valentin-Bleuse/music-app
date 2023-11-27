@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import s from './App.module.scss'
+import Canvas from './components/canvas/Canva';
+import Picker from './components/picker/Picker';
+import Search from './components/search/Search';
+import Songs from './components/songs/Songs';
+import useCustomStore from './customStore';
+
+
+const App = () => {
+  const songs = useCustomStore((state) => state.songs);
+  console.log(songs)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div >
+      <div className={s.songs}>
+        {songs.map((song, key) => {
+          return <Songs key={key} data={song} />;
+        })}
+
+      </div>
+      <Picker />
+      <Search />
+      <Canvas />
+
     </div>
   );
 }
